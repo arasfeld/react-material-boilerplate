@@ -1,15 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Item from './Item';
-import Wrapper from './Wrapper';
+import MatListItem from '@material-ui/core/ListItem';
 
 function ListItem(props) {
-  return (
-    <Wrapper>
-      <Item>{props.item}</Item>
-    </Wrapper>
-  );
+  return <MatListItem>{props.item}</MatListItem>;
 }
 
 ListItem.propTypes = {

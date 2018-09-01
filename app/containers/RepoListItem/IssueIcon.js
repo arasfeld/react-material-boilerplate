@@ -1,9 +1,7 @@
 import styled from 'styled-components';
+import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
 
-import NormalIssueIcon from 'components/IssueIcon';
-
-const IssueIcon = styled(NormalIssueIcon)`
-  fill: #ccc;
+const IssueIcon = styled(ErrorOutlineIcon)`
   margin-right: 0.25em;
 `;
 

@@ -4,9 +4,9 @@ import { shallow } from 'enzyme';
 import Wrapper from '../Wrapper';
 
 describe('<Wrapper />', () => {
-  it('should render an <li> tag', () => {
+  it('should render an <header> tag', () => {
     const renderedComponent = shallow(<Wrapper />);
-    expect(renderedComponent.type()).toEqual('li');
+    expect(renderedComponent.type()).toEqual('header');
   });
 
   it('should have a className attribute', () => {

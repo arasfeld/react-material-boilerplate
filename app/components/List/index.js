@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Ul from './Ul';
-import Wrapper from './Wrapper';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import MatList from '@material-ui/core/List';
 
 function List(props) {
   const ComponentToRender = props.component;
@@ -19,9 +20,11 @@ function List(props) {
   }
 
   return (
-    <Wrapper>
-      <Ul>{content}</Ul>
-    </Wrapper>
+    <Card>
+      <CardContent>
+        <MatList>{content}</MatList>
+      </CardContent>
+    </Card>
   );
 }
 

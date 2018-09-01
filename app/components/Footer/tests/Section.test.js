@@ -1,27 +1,27 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Item from '../Item';
+import Section from '../Section';
 
-describe('<Item />', () => {
-  it('should render an <div> tag', () => {
-    const renderedComponent = shallow(<Item />);
-    expect(renderedComponent.type()).toEqual('div');
+describe('<Section />', () => {
+  it('should render a <section> tag', () => {
+    const renderedComponent = shallow(<Section />);
+    expect(renderedComponent.type()).toEqual('section');
   });
 
   it('should have a className attribute', () => {
-    const renderedComponent = shallow(<Item />);
+    const renderedComponent = shallow(<Section />);
     expect(renderedComponent.prop('className')).toBeDefined();
   });
 
   it('should adopt a valid attribute', () => {
     const id = 'test';
-    const renderedComponent = shallow(<Item id={id} />);
+    const renderedComponent = shallow(<Section id={id} />);
     expect(renderedComponent.prop('id')).toEqual(id);
   });
 
   it('should not adopt an invalid attribute', () => {
-    const renderedComponent = shallow(<Item attribute="test" />);
+    const renderedComponent = shallow(<Section attribute="test" />);
     expect(renderedComponent.prop('attribute')).toBeUndefined();
   });
 });

@@ -1,32 +1,46 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
 
-import A from './A';
-import Img from './Img';
-import NavBar from './NavBar';
-import HeaderLink from './HeaderLink';
-import Banner from './banner.jpg';
-import messages from './messages';
+import AppBar from '@material-ui/core/AppBar';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import Toolbar from '@material-ui/core/Toolbar';
+import Wrapper from './Wrapper';
 
-/* eslint-disable react/prefer-stateless-function */
-class Header extends React.Component {
-  render() {
-    return (
-      <div>
-        <A href="https://twitter.com/mxstbr">
-          <Img src={Banner} alt="react-boilerplate - Logo" />
-        </A>
-        <NavBar>
-          <HeaderLink to="/">
-            <FormattedMessage {...messages.home} />
-          </HeaderLink>
-          <HeaderLink to="/features">
-            <FormattedMessage {...messages.features} />
-          </HeaderLink>
-        </NavBar>
-      </div>
-    );
-  }
+const styles = theme => ({
+  root: {
+    zIndex: theme.zIndex.drawer + 1,
+  },
+  navIconHide: {
+    [theme.breakpoints.up('md')]: {
+      display: 'none',
+    },
+  },
+});
+
+function Header({ classes, toggleSideNav }) {
+  return (
+    <Wrapper>
+      <AppBar position="absolute" className={classes.root}>
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="Menu"
+            className={classes.navIconHide}
+            onClick={toggleSideNav}
+          >
+            <MenuIcon />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+    </Wrapper>
+  );
 }
 
-export default Header;
+Header.propTypes = {
+  classes: PropTypes.object.isRequired,
+  toggleSideNav: PropTypes.func.isRequired,
+};
+
+export default withStyles(styles)(Header);

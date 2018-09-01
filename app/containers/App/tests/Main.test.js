@@ -1,27 +1,27 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Input from '../Input';
+import Main from '../Main';
 
-describe('<Input />', () => {
-  it('should render an <input> tag', () => {
-    const renderedComponent = shallow(<Input />);
-    expect(renderedComponent.type()).toEqual('input');
+describe('<Main />', () => {
+  it('should render a <main> tag', () => {
+    const renderedComponent = shallow(<Main />);
+    expect(renderedComponent.type()).toEqual('main');
   });
 
   it('should have a className attribute', () => {
-    const renderedComponent = shallow(<Input />);
+    const renderedComponent = shallow(<Main />);
     expect(renderedComponent.prop('className')).toBeDefined();
   });
 
   it('should adopt a valid attribute', () => {
     const id = 'test';
-    const renderedComponent = shallow(<Input id={id} />);
+    const renderedComponent = shallow(<Main id={id} />);
     expect(renderedComponent.prop('id')).toEqual(id);
   });
 
   it('should not adopt an invalid attribute', () => {
-    const renderedComponent = shallow(<Input attribute="test" />);
+    const renderedComponent = shallow(<Main attribute="test" />);
     expect(renderedComponent.prop('attribute')).toBeUndefined();
   });
 });

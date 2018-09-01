@@ -28,14 +28,14 @@ import LanguageProvider from 'containers/LanguageProvider';
 import '!file-loader?name=[name].[ext]!./images/favicon.ico';
 import 'file-loader?name=[name].[ext]!./.htaccess'; // eslint-disable-line import/extensions
 
+// Import material theme and Global Styles
+import theme from 'utils/theme';
+import './global-styles';
+
 import configureStore from './configureStore';
 
 // Import i18n messages
 import { translationMessages } from './i18n';
-
-// Import material theme and Global Styles
-import theme from './utils/theme';
-import './global-styles';
 
 // Observe loading of Roboto (to remove roboto, remove the <link> tag in
 // the index.html file and this observer)

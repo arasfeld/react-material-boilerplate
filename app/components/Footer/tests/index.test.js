@@ -11,9 +11,7 @@ describe('<Footer />', () => {
     const renderedComponent = shallow(<Footer />);
     expect(
       renderedComponent.contains(
-        <section>
-          <FormattedMessage {...messages.licenseMessage} />
-        </section>,
+        <FormattedMessage {...messages.licenseMessage} />,
       ),
     ).toBe(true);
   });
@@ -22,14 +20,12 @@ describe('<Footer />', () => {
     const renderedComponent = shallow(<Footer />);
     expect(
       renderedComponent.contains(
-        <section>
-          <FormattedMessage
-            {...messages.authorMessage}
-            values={{
-              author: <A href="https://twitter.com/mxstbr">Max Stoiber</A>,
-            }}
-          />
-        </section>,
+        <FormattedMessage
+          {...messages.authorMessage}
+          values={{
+            author: <A href="https://twitter.com/mxstbr">Max Stoiber</A>,
+          }}
+        />,
       ),
     ).toBe(true);
   });

@@ -14,7 +14,8 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
-import 'sanitize.css/sanitize.css';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { MuiThemeProvider } from '@material-ui/core/styles';
 
 // Import root app
 import App from 'containers/App';
@@ -28,13 +29,14 @@ import '!file-loader?name=[name].[ext]!./images/favicon.ico';
 import 'file-loader?name=[name].[ext]!./.htaccess';
 /* eslint-enable import/no-unresolved, import/extensions */
 
+// Import material theme and Global Styles
+import theme from 'utils/theme';
+import './global-styles';
+
 import configureStore from './configureStore';
 
 // Import i18n messages
 import { translationMessages } from './i18n';
-
-// Import CSS reset and Global Styles
-import './global-styles';
 
 // Create redux store with history
 const initialState = {};
@@ -47,7 +49,10 @@ const render = messages => {
     <Provider store={store}>
       <LanguageProvider messages={messages}>
         <ConnectedRouter history={history}>
-          <App />
+          <MuiThemeProvider theme={theme}>
+            <CssBaseline />
+            <App />
+          </MuiThemeProvider>
         </ConnectedRouter>
       </LanguageProvider>
     </Provider>,
